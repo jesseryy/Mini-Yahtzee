@@ -18,12 +18,16 @@ export default StyleSheet.create({
     flexDirection: 'row'
   },
   title: {
-    color: '#fff',
+    color: '#000000',
     fontWeight: 'bold',
     flex: 1,
-    fontSize: 23,
+    fontSize: 15,
     textAlign: 'center',
     margin: 10,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 5,
+    textDecorationLine: 'underline'
   },
   author: {
     color: '#000000',
@@ -56,12 +60,6 @@ export default StyleSheet.create({
     marginTop: 10,
     backgroundColor: '#f0f8ff'
   },
-  title: {
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 5,
-    textDecorationLine: 'underline'
-  },
   row: {
     marginTop: 20,
     padding: 10
@@ -81,6 +79,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginTop: 15,
     marginBottom: 15
+  },
+  playButton: {
+    alignItems: 'center',
+    padding: 10,
+    
   },
   buttonText: {
     color:"#2B2B52",

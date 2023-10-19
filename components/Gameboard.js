@@ -102,14 +102,32 @@ export default Gameboard = ({ navigation, route }) => {
         }
     }
 
+    const getCurrentDate=()=>{
+ 
+        var date = new Date().getDate();
+        var month = new Date().getMonth() + 1;
+        var year = new Date().getFullYear();
+   
+        //Alert.alert(date + '-' + month + '-' + year);
+        // You can turn it in to your desired format
+        return date + '.' + month + '.' + year;//format: d-m-y;
+  }
+
+    const getCurrentTime=()=>{
+        var hour = new Date().getHours();
+        var min = new Date().getMinutes();
+
+        return '-' + hour + ':' + min;
+    }
+
     const savePlayerPoints = async() => {
         const newKey = scores.length + 1;
         const playerPoints = {
             key: newKey,
             name: playerName,
-            date: 'date', // päivämäärä tänne funktiolla
-            time: 'time',   // kellonaika tänne funktiolla
-            points: 0 // yhteispisteet (mahdollinen bonus mukaan)
+            date: getCurrentDate(), // päivämäärä tänne funktiolla
+            time: getCurrentTime(),   // kellonaika tänne funktiolla
+            points: dicePointsTotal // yhteispisteet (mahdollinen bonus mukaan)
         }
         try {
             const newScore = [...scores, playerPoints];
@@ -193,6 +211,8 @@ export default Gameboard = ({ navigation, route }) => {
         });
         return unsubscribe;
     }, [navigation]);
+
+    
 
     return (
         <>

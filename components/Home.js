@@ -64,11 +64,10 @@ export default Home = ({ navigation }) => {
                             points more.
                         </Text>
                         <Text style={[styles.gameinfo,{fontWeight: 'bold'}]}>Good luck, {playerName}</Text>
-                        <Pressable
-                            style={styles.button}
+                        <Pressable                          
                             onPress={() => navigation.navigate('Gameboard', { player: playerName })}
                         >
-                            <Text>PLAY</Text>
+                            <MaterialCommunityIcons name="play" size={60} color="green" />
                         </Pressable>
                     </>
                 }

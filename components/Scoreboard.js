@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { NBR_OF_SCOREBOARD_ROWS, SCOREBOARD_KEY } from "../constants/Game";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import style from "../style/style";
 
 export default Scoreboard = ({ navigation }) => {
@@ -54,18 +55,20 @@ export default Scoreboard = ({ navigation }) => {
                         index < NBR_OF_SCOREBOARD_ROWS &&
                         <DataTable.Row key={player.key}>
                             <DataTable.Cell><Text>{index + 1}.</Text></DataTable.Cell>
-                            <DataTable.Cell><Text>{player.name}</Text></DataTable.Cell>
-                            <DataTable.Cell><Text>{player.date}</Text></DataTable.Cell>
-                            <DataTable.Cell><Text>{player.time}</Text></DataTable.Cell>
-                            <DataTable.Cell><Text>{player.points}</Text></DataTable.Cell>
+                            <DataTable.Cell><Text style={style.scoreBoard}>{player.name}</Text></DataTable.Cell>
+                            <DataTable.Cell><Text style={style.scoreBoard}>{player.date}</Text></DataTable.Cell>
+                            <DataTable.Cell><Text style={style.scoreBoard}>{player.time}</Text></DataTable.Cell>
+                            <DataTable.Cell><Text style={style.scoreBoard}>{player.points}</Text></DataTable.Cell>
                         </DataTable.Row>
                     ))
                 }
             </View>
-            <View>
+            <View style={style.container}>               
                 <Pressable
+                    style={style.button}
                     onPress={() => clearScoreboard()}>
-                    <Text>CLEAR SCOREBOARD</Text>
+                        <Text style={style.title}>CLEAR SCOREBOARD</Text>
+                  <MaterialCommunityIcons name="delete" size={40} color="red" />
                 </Pressable>
             </View>
             <Footer />
